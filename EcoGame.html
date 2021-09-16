@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EcoGame</title>
+        <meta charset="utf-8"/>
+        <style>
+            body {
+                background-color: black;
+                color: white;
+            }
+            button {
+                background-color: #0F0F0F;
+                color: white;
+                border-color: gray;
+            }
+            .image1 {
+                width: 40px;
+            }
+        </style>
+        <script src="JavaScript/Styler.js"></script>
+        <script src="JavaScript/Starter.js"></script>
+    </head>
+
+    <body>
+        <h1>
+            EcoGame
+            <button onclick="ChangeMode(true)">
+                <img class="image1" src="Pictures/Dark.jpg" alt="Dark">
+            </button>
+            <button onclick="ChangeMode(false)">
+                <img class="image1" src="Pictures/Light.jpg" alt="Light">
+            </button>
+            <a href="Data/About.html" target="_blank">
+                <img class="image1" src="Pictures/About.jpg" alt="About">
+            </a>
+        </h1>
+        <p id="starter">
+            <button onclick="NewGame()">
+                NewGame
+            </button>
+            <button onclick="PrepareLoad()">
+                LoadGame
+            </button>
+        </p>
+    </body>
+</html>
