@@ -1,0 +1,19 @@
+body
+{
+    background-color: black;
+    color: white;
+}
+button
+{
+    background-color: #0F0F0F;
+    color: white;
+    border-color: gray;
+}
+.image1
+{
+    width: 40px;
+}
+.image2
+{
+    width: 200px;
+}
