@@ -13,9 +13,9 @@ function NextTurn()
     turn += 1;
     money += people;
     people += people / 2;
-    parseFloat()
+    
     people = Math.floor(people);
-    peopler = people;
+    
     
     Draw();
 }
