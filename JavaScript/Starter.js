@@ -20,20 +20,51 @@ function NewGame()
     heading.id = "turnline";
     gamearea.appendChild(heading);
     var nextturn = document.createElement("button");
-    nextturn.onclick = function () {NextTurn();};
+    //takhle vytvoris button
+    nextturn.onclick = function () { NextTurn(); };
+    //co to udela
     nextturn.innerHTML = "Next turn";
+    //co to napise dovnitr
     gamearea.appendChild(document.createElement("p").appendChild(nextturn));
+    //takhle pridas button jinak se tam neobjevi
     var imageline = document.createElement("p");
+    //vytvori se radek ale musi se pridat
     var image = document.createElement("img");
+    //vytvoris obrazek
     image.class = "image2";
+    //Styles.css 
     image.src = "Pictures/Planet.jpg";
+    //az se bude nacitat na tenhle obrazek se to koukne
     imageline.appendChild(image);
+    //pridas obrazek do radku
     gamearea.appendChild(imageline);
+    //pridat radek
     var moneyline = document.createElement("p");
+
     moneyline.id = "moneyline";
     gamearea.appendChild(moneyline);
+    
+    //pridava gamearea do toho dokumentu
+    var peopleline = document.createElement("p");
+
+    peopleline.id = "peopleline";
+    gamearea.appendChild(peopleline);
+
+    var polutionline = document.createElement("p");
+
+    polutionline.id = "polutionline";
+    gamearea.appendChild(polutionline);
+
+    var peoplerline = document.createElement("p");
+
+    peoplerline.id = "peoplerline";
+    gamearea.appendChild(peoplerline);
+
+
     document.body.appendChild(gamearea);
+
     Draw();
+    //Controller
 }
 function LoadGame()
 {
