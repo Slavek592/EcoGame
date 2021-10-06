@@ -6,6 +6,7 @@ function Draw()
     document.getElementById("peopleline").innerHTML = "People: " + people;
     document.getElementById("pollutionline").innerHTML = "Pollution: " + pollution;
     document.getElementById("pollutioncleanersline").innerHTML = "Pollution Cleaners: " + pollutioncleaners;
+    document.getElementById("pollutioncost").innerHTML = "Cost: " + pollutioncost;
 }
 function NextTurn()
 {
@@ -17,18 +18,17 @@ function NextTurn()
     people += people / 2;
     people = Math.floor(people);
     
-    
     Draw();
 }
-function BuyPollution() {
+function BuyPollution()
+{
     if (money >= pollutioncost) {
         money -= pollutioncost;
         pollutioncleaners += 1;
         pollutioncost = pollutioncost * 2.2;
         pollutioncost = Math.floor(pollutioncost);
-        document.getElementById("moneyline").innerHTML = "Money: " + money;
-        document.getElementById("pollutioncleanersline").innerHTML = "Pollution Cleaners: " + pollutioncleaners;
-        document.getElementById("pollutioncost").innerHTML = "Cost: " + pollutioncost;
+        
+        Draw();
     }    
 
 
