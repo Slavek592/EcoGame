@@ -28,14 +28,19 @@ function NewGame()
     gamearea.appendChild(document.createElement("p").appendChild(nextturn));
     //takhle pridas button jinak se tam neobjevi
 
-    var buypolution = document.createElement("button");
+    var buypollution = document.createElement("button");
     
-    buypolution.onclick = function () { Buypolution(); };
+    buypollution.onclick = function () { BuyPollution(); };
     
-    buypolution.innerHTML = "Buy polution cleaner cost" + polutioncost;
+    var line1 = document.createElement("p");
+    line1.innerHTML = "Buy pollution cleaner";
     
-    gamearea.appendChild(document.createElement("p").appendChild(buypolution));
+    buypollution.appendChild(line1);
     
+    var line2 = document.createElement("p");
+    line2.id = "pollutioncost";
+    line2.innerHTML = "Cost: " + pollutioncost;
+    buypollution.appendChild(line2);
 
     var imageline = document.createElement("p");
     //vytvori se radek ale musi se pridat
@@ -49,6 +54,9 @@ function NewGame()
     //pridas obrazek do radku
     gamearea.appendChild(imageline);
     //pridat radek
+    
+    gamearea.appendChild(document.createElement("p").appendChild(buypollution));
+    
     var moneyline = document.createElement("p");
 
     moneyline.id = "moneyline";
@@ -60,16 +68,16 @@ function NewGame()
     peopleline.id = "peopleline";
     gamearea.appendChild(peopleline);
 
-    var polutionline = document.createElement("p");
+    var pollutionline = document.createElement("p");
 
-    polutionline.id = "polutionline";
-    gamearea.appendChild(polutionline);
+    pollutionline.id = "pollutionline";
+    gamearea.appendChild(pollutionline);
 
     
-    var polutioncleanersline = document.createElement("p");
+    var pollutioncleanersline = document.createElement("p");
 
-    polutioncleanersline.id = "polutioncleanersline";
-    gamearea.appendChild(polutioncleanersline);
+    pollutioncleanersline.id = "pollutioncleanersline";
+    gamearea.appendChild(pollutioncleanersline);
 
 
     document.body.appendChild(gamearea);
@@ -79,6 +87,7 @@ function NewGame()
 }
 function LoadGame()
 {
+    document.getElementById("comment").innerHTML = "";
     if (document.getElementById("gamekey").value == "")
     {
         document.getElementById("comment").innerHTML = "Write the game key.";
