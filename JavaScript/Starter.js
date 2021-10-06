@@ -27,6 +27,16 @@ function NewGame()
     //co to napise dovnitr
     gamearea.appendChild(document.createElement("p").appendChild(nextturn));
     //takhle pridas button jinak se tam neobjevi
+
+    var buypolution = document.createElement("button");
+    
+    buypolution.onclick = function () { Buypolution(); };
+    
+    buypolution.innerHTML = "Buy polution cleaner cost" + polutioncost;
+    
+    gamearea.appendChild(document.createElement("p").appendChild(buypolution));
+    
+
     var imageline = document.createElement("p");
     //vytvori se radek ale musi se pridat
     var image = document.createElement("img");
@@ -55,10 +65,11 @@ function NewGame()
     polutionline.id = "polutionline";
     gamearea.appendChild(polutionline);
 
-    var peoplerline = document.createElement("p");
+    
+    var polutioncleanersline = document.createElement("p");
 
-    peoplerline.id = "peoplerline";
-    gamearea.appendChild(peoplerline);
+    polutioncleanersline.id = "polutioncleanersline";
+    gamearea.appendChild(polutioncleanersline);
 
 
     document.body.appendChild(gamearea);
