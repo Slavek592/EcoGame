@@ -15,7 +15,7 @@ function NextTurn()
     money += people;
     pollution += people / 10 / pollutioncleaners;
     pollution = Math.floor(pollution);
-    people += people / 2;
+    people += people / 10;
     people = Math.floor(people);
     
     Draw();
@@ -25,7 +25,7 @@ function BuyPollution()
     if (money >= pollutioncost) {
         money -= pollutioncost;
         pollutioncleaners += 1;
-        pollutioncost = pollutioncost * 2.2;
+        pollutioncost = pollutioncost * 1.5;
         pollutioncost = Math.floor(pollutioncost);
         
         Draw();
