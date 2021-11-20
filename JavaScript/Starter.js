@@ -28,20 +28,6 @@ function NewGame()
     gamearea.appendChild(document.createElement("p").appendChild(nextturn));
     //takhle pridas button jinak se tam neobjevi
 
-    var buypollution = document.createElement("button");
-    
-    buypollution.onclick = function () { BuyPollution(); };
-    
-    var line1 = document.createElement("p");
-    line1.innerHTML = "Buy pollution cleaner";
-    
-    buypollution.appendChild(line1);
-    
-    var line2 = document.createElement("p");
-    line2.id = "pollutioncost";
-    line2.innerHTML = "Cost: " + pollutioncost;
-    buypollution.appendChild(line2);
-
     var imageline = document.createElement("p");
     //vytvori se radek ale musi se pridat
     var image = document.createElement("img");
@@ -55,7 +41,46 @@ function NewGame()
     gamearea.appendChild(imageline);
     //pridat radek
     
-    gamearea.appendChild(document.createElement("p").appendChild(buypollution));
+    var buttonline1 = document.createElement("p");
+    
+    var buypollution = document.createElement("button");
+    
+    buypollution.onclick = function () { BuyPollution(); };
+    
+    var line_1_1 = document.createElement("p");
+    line_1_1.innerHTML = "Buy pollution cleaner";
+    buypollution.appendChild(line_1_1);
+    
+    var line_1_2 = document.createElement("p");
+    line_1_2.id = "pollutioncost";
+    line_1_2.innerHTML = "Cost: " + pollutioncost;
+    buypollution.appendChild(line_1_2);
+    
+    var line_1_3 = document.createElement("p");
+    line_1_3.innerHTML = "+1 pollution cleaner";
+    buypollution.appendChild(line_1_3);
+    
+    buttonline1.appendChild(buypollution);
+    
+    var buytrees = document.createElement("button");
+    
+    buytrees.onclick = function () { BuyTrees(); };
+    
+    var line_2_1 = document.createElement("p");
+    line_2_1.innerHTML = "Buy trees";
+    buytrees.appendChild(line_2_1);
+    
+    var line_2_2 = document.createElement("p");
+    line_2_2.innerHTML = "Cost: " + treecost;
+    buytrees.appendChild(line_2_2);
+    
+    var line_2_3 = document.createElement("p");
+    line_2_3.innerHTML = "+5 trees in 2 turns";
+    buytrees.appendChild(line_2_3);
+    
+    buttonline1.appendChild(buytrees);
+    
+    gamearea.appendChild(buttonline1);
     
     var moneyline = document.createElement("p");
 
@@ -78,6 +103,11 @@ function NewGame()
 
     pollutioncleanersline.id = "pollutioncleanersline";
     gamearea.appendChild(pollutioncleanersline);
+    
+    var treesline = document.createElement("p");
+
+    treesline.id = "treesline";
+    gamearea.appendChild(treesline);
 
 
     document.body.appendChild(gamearea);
