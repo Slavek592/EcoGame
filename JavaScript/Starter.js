@@ -40,6 +40,9 @@ function NewGame()
     //pridas obrazek do radku
     gamearea.appendChild(imageline);
     //pridat radek
+
+    
+    
     
     var buttonline1 = document.createElement("p");
     
@@ -79,6 +82,24 @@ function NewGame()
     buytrees.appendChild(line_2_3);
     
     buttonline1.appendChild(buytrees);
+
+    var cuttrees = document.createElement("button");
+    
+    cuttrees.onclick = function () { CutTrees1(); };
+    
+    cuttrees.innerHTML = "Cut 1 adult tree";
+    
+    buttonline1.appendChild(cuttrees);
+
+    var cuttreesall = document.createElement("button");
+
+    cuttreesall.onclick = function () { CutTreesAll(); };
+
+    cuttreesall.innerHTML = "Cut all adult trees";
+
+    buttonline1.appendChild(cuttreesall);
+    
+
     
     gamearea.appendChild(buttonline1);
     

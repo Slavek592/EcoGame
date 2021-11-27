@@ -48,4 +48,21 @@ function BuyTrees()
         Draw();
     }
 }
+function CutTrees1()
+{
+    if (trees[2] >= 1)
+    {
+        trees[2]--;
+        money = money + 10;
+        Draw();
+    }
+}
+function CutTreesAll() {
+    if (trees[2] >= 1) {
+        
+        money = money + 10 * trees[2];
+        trees[2] = trees[2] - trees[2];
+        Draw();
+    }
+}
 
