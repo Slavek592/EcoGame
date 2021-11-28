@@ -21,8 +21,13 @@ function NextTurn()
     people = Math.floor(people);
     for (let i = 1; i > -1; i--)
     {
+        pollution -= trees[i];
         trees[i+1] += trees[i];
         trees[i] = 0;
+        if (pollution < 0)
+        {
+            pollution = 0;
+        }
     }
     
     Draw();
