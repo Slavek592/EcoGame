@@ -137,4 +137,13 @@ function BuyLessTrees()
         document.getElementById("treesbuying").innerHTML = treesbuying;
     }
 }
+function BuyTreesSet()
+{
+    treesbuying = parseInt(document.getElementById("buytreeschange").value);
+    if (isNaN(treesbuying))
+    {
+        treesbuying = 0;
+    }
+    document.getElementById("treesbuying").innerHTML = treesbuying;
+}
 

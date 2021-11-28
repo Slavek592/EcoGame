@@ -100,14 +100,22 @@ function NewGame()
     gamearea.appendChild(buytreescountline);
     
     buytreeschangeline = document.createElement("p");
-    var buytreesmore = document.createElement("button");
-    buytreesmore.onclick = function () { BuyMoreTrees(); };
-    buytreesmore.innerHTML = "+";
-    buytreeschangeline.appendChild(buytreesmore);
     var buytreesless = document.createElement("button");
     buytreesless.onclick = function () { BuyLessTrees(); };
     buytreesless.innerHTML = "-";
     buytreeschangeline.appendChild(buytreesless);
+    var buytreesmore = document.createElement("button");
+    buytreesmore.onclick = function () { BuyMoreTrees(); };
+    buytreesmore.innerHTML = "+";
+    buytreeschangeline.appendChild(buytreesmore);
+    var buytreeschange = document.createElement("input");
+    buytreeschange.type = "text";
+    buytreeschange.id = "buytreeschange";
+    buytreeschangeline.appendChild(buytreeschange);
+    var buytreesset = document.createElement("button");
+    buytreesset.onclick = function () { BuyTreesSet(); };
+    buytreesset.innerHTML = "Set";
+    buytreeschangeline.appendChild(buytreesset);
     gamearea.appendChild(buytreeschangeline);
 
     var cuttrees = document.createElement("button");
