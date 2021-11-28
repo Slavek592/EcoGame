@@ -43,7 +43,15 @@ function NewGame()
 
     
     
-    
+
+    var changebuying = document.createElement("button");
+
+    changebuying.onclick = function () { ChangeBuying(); };
+
+    changebuying.innerHTML = "Change Buying Multiples";
+
+    gamearea.appendChild(document.createElement("p").appendChild(changebuying));
+
     var buttonline1 = document.createElement("p");
     
     var buypollution = document.createElement("button");
@@ -74,11 +82,11 @@ function NewGame()
     buytrees.appendChild(line_2_1);
     
     var line_2_2 = document.createElement("p");
-    line_2_2.innerHTML = "Cost: " + treecost;
+    line_2_2.innerHTML = "Cost: " + treecostshow;
     buytrees.appendChild(line_2_2);
     
     var line_2_3 = document.createElement("p");
-    line_2_3.innerHTML = "+5 trees in 2 turns";
+    line_2_3.innerHTML = "+ " + treeaddshow + " trees in 2 turns";
     buytrees.appendChild(line_2_3);
     
     buttonline1.appendChild(buytrees);
@@ -87,7 +95,7 @@ function NewGame()
     
     cuttrees.onclick = function () { CutTrees1(); };
     
-    cuttrees.innerHTML = "Cut 1 adult tree";
+    cuttrees.innerHTML = "Cut "+ cuttreesshow +" adult tree";
     
     buttonline1.appendChild(cuttrees);
 
@@ -111,7 +119,8 @@ function NewGame()
 
     
     gamearea.appendChild(buttonline1);
-    
+
+
     var moneyline = document.createElement("p");
 
     moneyline.id = "moneyline";
@@ -122,6 +131,10 @@ function NewGame()
     armyline.id = "armyline";
     gamearea.appendChild(armyline);
 
+    var multiplicationline = document.createElement("p");
+
+    multiplicationline.id = "multiplicationline";
+    gamearea.appendChild(multiplicationline);
     //pridava gamearea do toho dokumentu
     var peopleline = document.createElement("p");
 

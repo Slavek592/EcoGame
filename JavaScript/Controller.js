@@ -9,6 +9,8 @@ function Draw()
     document.getElementById("pollutioncost").innerHTML = "Cost: " + pollutioncost;
     document.getElementById("treesline").innerHTML = "Adult trees: " + trees[2];
     document.getElementById("armyline").innerHTML = "Army: " + army;
+    document.getElementById("multiplicationline").innerHTML = "Buying multiplication " + buyingshow;
+    
 }
 function NextTurn()
 {
@@ -17,8 +19,14 @@ function NextTurn()
     money += people;
     pollution += (people + army) / 10 / pollutioncleaners;
     pollution = Math.floor(pollution);
+    people1 = people;
     people += people / 10;
     people = Math.floor(people);
+    if (people1 == people) {
+        people++;
+    }
+
+    
     for (let i = 1; i > -1; i--)
     {
         pollution -= trees[i];
@@ -46,20 +54,20 @@ function BuyPollution()
 }
 function BuyTrees()
 {
-    if (money >= treecost)
+    if (money >= treecost * buyingshow)
     {
-        money -= treecost;
-        trees[0] += 5;
+        money -= treecost * buyingshow;
+        trees[0] += 5 * buyingshow;
         
         Draw();
     }
 }
 function CutTrees1()
 {
-    if (trees[2] >= 1)
+    if (trees[2] >= buyingshow)
     {
-        trees[2]--;
-        money = money + 10;
+        trees[2]-= buyingshow;
+        money = money + 10* buyingshow;
         Draw();
     }
 }
@@ -72,12 +80,48 @@ function CutTreesAll() {
     }
 }
 function BuyArmy() {
-    if (people > 1) {
+    if (people > 1 + buyingshow) {
 
-        army++;
-        people--;
+        army+=buyingshow;
+        people-= buyingshow;
         
         Draw();
     }
+}
+function ChangeBuying() {
+    buyingholder++;
+    if (buyingholder > 4) {
+        buyingholder = 1;
+    }
+    if (buyingholder == 1)
+    {
+        buyingshow = buying[0]
+
+        
+    }
+    if (buyingholder == 2)
+    {
+        buyingshow = buying[1]
+
+
+    }
+    if (buyingholder == 3)
+    {
+        buyingshow = buying[2]
+
+
+    }
+    if (buyingholder == 4)
+    {
+        buyingshow = buying[3]
+
+
+    }
+    treecostshow = treecost * buyingshow;
+    treeaddshow = 5 * buyingshow;
+    cuttreesshow = buyingshow;
+    
+        Draw();
+    
 }
 
