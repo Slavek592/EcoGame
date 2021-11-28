@@ -54,10 +54,10 @@ function BuyPollution()
 }
 function BuyTrees()
 {
-    if (money >= treecost * buyingshow)
+    if (money >= treecost * treesbuying)
     {
-        money -= treecost * buyingshow;
-        trees[0] += 5 * buyingshow;
+        money -= treecost * treesbuying;
+        trees[0] += treesbuying;
         
         Draw();
     }
@@ -123,5 +123,18 @@ function ChangeBuying() {
     
         Draw();
     
+}
+function BuyMoreTrees()
+{
+    treesbuying ++;
+    document.getElementById("treesbuying").innerHTML = treesbuying;
+}
+function BuyLessTrees()
+{
+    if (treesbuying > 0)
+    {
+        treesbuying --;
+        document.getElementById("treesbuying").innerHTML = treesbuying;
+    }
 }
 

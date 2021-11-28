@@ -73,6 +73,8 @@ function NewGame()
     
     buttonline1.appendChild(buypollution);
     
+    var buytreesline = document.createElement("p");
+    
     var buytrees = document.createElement("button");
     
     buytrees.onclick = function () { BuyTrees(); };
@@ -82,14 +84,31 @@ function NewGame()
     buytrees.appendChild(line_2_1);
     
     var line_2_2 = document.createElement("p");
-    line_2_2.innerHTML = "Cost: " + treecostshow;
+    line_2_2.innerHTML = "Cost: 1";
     buytrees.appendChild(line_2_2);
     
     var line_2_3 = document.createElement("p");
     line_2_3.innerHTML = "+ " + treeaddshow + " trees in 2 turns";
     buytrees.appendChild(line_2_3);
     
-    buttonline1.appendChild(buytrees);
+    buytreesline.appendChild(buytrees);
+    gamearea.appendChild(buytreesline);
+    
+    buytreescountline = document.createElement("p");
+    buytreescountline.id = "treesbuying";
+    buytreescountline.innerHTML = treesbuying;
+    gamearea.appendChild(buytreescountline);
+    
+    buytreeschangeline = document.createElement("p");
+    var buytreesmore = document.createElement("button");
+    buytreesmore.onclick = function () { BuyMoreTrees(); };
+    buytreesmore.innerHTML = "+";
+    buytreeschangeline.appendChild(buytreesmore);
+    var buytreesless = document.createElement("button");
+    buytreesless.onclick = function () { BuyLessTrees(); };
+    buytreesless.innerHTML = "-";
+    buytreeschangeline.appendChild(buytreesless);
+    gamearea.appendChild(buytreeschangeline);
 
     var cuttrees = document.createElement("button");
     
