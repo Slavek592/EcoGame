@@ -8,13 +8,14 @@ function Draw()
     document.getElementById("pollutioncleanersline").innerHTML = "Pollution Cleaners: " + pollutioncleaners;
     document.getElementById("pollutioncost").innerHTML = "Cost: " + pollutioncost;
     document.getElementById("treesline").innerHTML = "Adult trees: " + trees[2];
+    document.getElementById("armyline").innerHTML = "Army: " + army;
 }
 function NextTurn()
 {
     
     turn += 1;
     money += people;
-    pollution += people / 10 / pollutioncleaners;
+    pollution += (people + army) / 10 / pollutioncleaners;
     pollution = Math.floor(pollution);
     people += people / 10;
     people = Math.floor(people);
@@ -62,6 +63,15 @@ function CutTreesAll() {
         
         money = money + 10 * trees[2];
         trees[2] = trees[2] - trees[2];
+        Draw();
+    }
+}
+function BuyArmy() {
+    if (people > 1) {
+
+        army++;
+        people--;
+        
         Draw();
     }
 }

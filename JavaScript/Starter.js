@@ -98,6 +98,15 @@ function NewGame()
     cuttreesall.innerHTML = "Cut all adult trees";
 
     buttonline1.appendChild(cuttreesall);
+
+    var buyarmy = document.createElement("button");
+
+    buyarmy.onclick = function () { BuyArmy(); };
+
+    buyarmy.innerHTML = "Transform 1 person into a soldier";
+
+    buttonline1.appendChild(buyarmy);
+
     
 
     
@@ -107,7 +116,12 @@ function NewGame()
 
     moneyline.id = "moneyline";
     gamearea.appendChild(moneyline);
-    
+
+    var armyline = document.createElement("p");
+
+    armyline.id = "armyline";
+    gamearea.appendChild(armyline);
+
     //pridava gamearea do toho dokumentu
     var peopleline = document.createElement("p");
 
