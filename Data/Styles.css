@@ -9,6 +9,9 @@ button
     color: white;
     border-color: gray;
 }
+input {
+    width: 30px;
+}
 .image1
 {
     width: 40px;
