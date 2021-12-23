@@ -1,39 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>EcoGame</title>
-        <meta charset="utf-8"/>
-        <link rel="stylesheet" href="Data/Styles.css">
-        <script src="JavaScript/Holder.js"></script>
-        <script src="JavaScript/Styler.js"></script>
-        <script src="JavaScript/Starter.js"></script>
-        <script src="JavaScript/Controller.js"></script>
-        <!-- This is a comment. -->
-        <!-- The lines above are used to load the JavaScript and CSS. -->
-        <!-- Do not load JavaScript modules including functions with the same name. -->
-    </head>
+<head>
+    <title>EcoGame</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="Data/Styles.css">
+    <script src="JavaScript/Holder.js"></script>
+    <script src="JavaScript/Styler.js"></script>
+    <script src="JavaScript/Starter.js"></script>
+    <script src="JavaScript/Controller.js"></script>
+    <!-- This is a comment. -->
+    <!-- The lines above are used to load the JavaScript and CSS. -->
+    <!-- Do not load JavaScript modules including functions with the same name. -->
+</head>
 
-    <body>
-        <h1>
-            EcoGame
-            <button onclick="ChangeMode(true)">
-                <img class="image1" src="Pictures/Dark.jpg" alt="Dark">
-            </button>
-            <button onclick="ChangeMode(false)">
-                <img class="image1" src="Pictures/Light.jpg" alt="Light">
-            </button>
-            <a href="Data/About.html" target="_blank">
-                <img class="image1" src="Pictures/About.jpg" alt="About">
-            </a>
-        </h1>
-        <p id="starter">
-            <button onclick="NewGame()">
-                NewGame
-            </button>
-            <button onclick="PrepareLoad()">
-                LoadGame
-            </button>
-        </p>
-        <p id="comment"></p>
-    </body>
+<body>
+    <h1>
+        EcoGame
+        <button onclick="ChangeMode(true)">
+            <img class="image1" src="Pictures/Dark.jpg" alt="Dark">
+        </button>
+        <button onclick="ChangeMode(false)">
+            <img class="image1" src="Pictures/Light.jpg" alt="Light">
+        </button>
+        <a href="Data/About.html" target="_blank">
+            <img class="image1" src="Pictures/About.jpg" alt="About">
+        </a>
+    </h1>
+    <div>
+        <h2 id="turn_line">Turn 0</h2>
+        <p><button onclick="NextTurn()">Next turn</button></p>
+        <p><img src="Pictures/Planet.jpg" alt=""></p>
+    </div>
+    <h3 id="money_line">Money: 10</h3>
+    <table>
+        <tr>
+            <td>
+                <h3>People</h3>
+                <p><a href="Data/Pedia/People.html" target="_blank">Info</a></p>
+                <h4>You have:</h4>
+                <p id="people_line">People: 10</p>
+                <p id="army_line">Police: 0</p>
+                <h4>To recruit:</h4>
+                <p id="army_buying">1</p>
+                <p>
+                    <button onclick="BuyLessArmy()">-</button>
+                    <button onclick="BuyMoreArmy()">+</button>
+                </p>
+                <p>
+                    <input type="text" id="buy_army_change">
+                    <button onclick="BuyArmySet()">Set</button>
+                </p>
+                <p><button onclick="BuyArmy()">Recruit policemen</button></p>
+            </td>
+            <td>
+                <h3>Trees</h3>
+                <p><a href="Data/Pedia/Trees.html" target="_blank">Info</a></p>
+                <h4>You have:</h4>
+                <p id="trees_line">Adult trees: 0</p>
+                <p id="small_trees_line">Small trees: 0</p>
+                <p id="seeds_line">Seeds: 0</p>
+                <h4>To buy:</h4>
+                <p id="trees_buying">1</p>
+                <p>
+                    <button onclick="BuyLessTrees()">-</button>
+                    <button onclick="BuyMoreTrees()">+</button>
+                </p>
+                <p>
+                    <input type="text" id="buy_trees_change">
+                    <button onclick="BuyTreesSet()">Set</button>
+                </p>
+                <p><button onclick="BuyTrees()">Buy trees</button></p>
+            </td>
+            <td>
+                <h3>Pollution</h3>
+                <p><a href="Data/Pedia/Pollution.html" target="_blank">Info</a></p>
+                <h4>You have:</h4>
+                <p id="pollution_line">Pollution: 0</p>
+                <h4>To buy:</h4>
+                <p id="pollution_buying">1</p>
+                <p>
+                    <button onclick="BuyLessPollution()">-</button>
+                    <button onclick="BuyMorePollution()">+</button>
+                </p>
+                <p>
+                    <input type="text" id="buy_pollution_change">
+                    <button onclick="BuyPollutionSet()">Set</button>
+                </p>
+                <p><button onclick="BuyPass()">Buy pass</button></p>
+            </td>
+        </tr>
+    </table>
+    <p id="comment"></p>
+</body>
 </html>

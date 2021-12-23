@@ -1,23 +1,21 @@
 function Draw()
 {
     document.getElementById("comment").innerHTML = "";
-    document.getElementById("turnline").innerHTML = "Turn " + turn;
-    document.getElementById("moneyline").innerHTML = "Money: " + money;
-    document.getElementById("peopleline").innerHTML = "People: " + people;
-    document.getElementById("pollutionline").innerHTML = "Pollution: " + pollution;
-    document.getElementById("pollutioncleanersline").innerHTML = "Pollution Cleaners: " + pollutioncleaners;
-    document.getElementById("pollutioncost").innerHTML = "Cost: " + pollutioncost;
-    document.getElementById("treesline").innerHTML = "Adult trees: " + trees[2];
-    document.getElementById("armyline").innerHTML = "Army: " + army;
-    document.getElementById("multiplicationline").innerHTML = "Buying multiplication " + buyingshow;
-    
+    document.getElementById("turn_line").innerHTML = "Turn " + turn;
+    document.getElementById("money_line").innerHTML = "Money: " + money;
+    document.getElementById("people_line").innerHTML = "People: " + people;
+    document.getElementById("pollution_line").innerHTML = "Pollution: " + pollution;
+    document.getElementById("trees_line").innerHTML = "Adult trees: " + trees[2];
+    document.getElementById("small_trees_line").innerHTML = "Small trees: " + trees[1];
+    document.getElementById("seeds_line").innerHTML = "Seeds: " + trees[0];
+    document.getElementById("army_line").innerHTML = "Police: " + army;
 }
 function NextTurn()
 {
     
     turn += 1;
     money += people;
-    pollution += (people + army) / 10 / pollutioncleaners;
+    pollution += people / 10;
     pollution = Math.floor(pollution);
     people1 = people;
     people += people / 10;
@@ -52,16 +50,6 @@ function BuyPollution()
         Draw();
     }
 }
-function BuyTrees()
-{
-    if (money >= treecost * treesbuying)
-    {
-        money -= treecost * treesbuying;
-        trees[0] += treesbuying;
-        
-        Draw();
-    }
-}
 function CutTrees1()
 {
     if (trees[2] >= buyingshow)
@@ -71,79 +59,87 @@ function CutTrees1()
         Draw();
     }
 }
-function CutTreesAll() {
-    if (trees[2] >= 1) {
-        
-        money = money + 10 * trees[2];
-        trees[2] = trees[2] - trees[2];
+function BuyArmy()
+{
+    if (people > 1 + army_buying + army)
+    {
+        army += army_buying;
         Draw();
     }
 }
-function BuyArmy() {
-    if (people > 1 + buyingshow) {
-
-        army+=buyingshow;
-        people-= buyingshow;
-        
-        Draw();
+function BuyMoreArmy()
+{
+    army_buying ++;
+    document.getElementById("army_buying").innerHTML = army_buying.toString();
+}
+function BuyLessArmy()
+{
+    if (army_buying > 0)
+    {
+        army_buying --;
+        document.getElementById("army_buying").innerHTML = army_buying.toString();
     }
 }
-function ChangeBuying() {
-    buyingholder++;
-    if (buyingholder > 4) {
-        buyingholder = 1;
-    }
-    if (buyingholder == 1)
+function BuyArmySet()
+{
+    army_buying = parseInt(document.getElementById("buy_army_change").value);
+    if (isNaN(army_buying))
     {
-        buyingshow = buying[0]
-
-        
+        army_buying = 0;
     }
-    if (buyingholder == 2)
+    document.getElementById("army_buying").innerHTML = army_buying.toString();
+}
+function BuyTrees()
+{
+    let tree_cost = 1;
+    if (money >= tree_cost * trees_buying)
     {
-        buyingshow = buying[1]
-
-
+        money -= tree_cost * trees_buying;
+        trees[0] += trees_buying;
+        document.getElementById("seeds_line").innerHTML = "Seeds: " + trees[0];
     }
-    if (buyingholder == 3)
-    {
-        buyingshow = buying[2]
-
-
-    }
-    if (buyingholder == 4)
-    {
-        buyingshow = buying[3]
-
-
-    }
-    treecostshow = treecost * buyingshow;
-    treeaddshow = 5 * buyingshow;
-    cuttreesshow = buyingshow;
-    
-        Draw();
-    
 }
 function BuyMoreTrees()
 {
-    treesbuying ++;
-    document.getElementById("treesbuying").innerHTML = treesbuying;
+    trees_buying ++;
+    document.getElementById("trees_buying").innerHTML = trees_buying.toString();
 }
 function BuyLessTrees()
 {
-    if (treesbuying > 0)
+    if (trees_buying > 0)
     {
-        treesbuying --;
-        document.getElementById("treesbuying").innerHTML = treesbuying;
+        trees_buying --;
+        document.getElementById("trees_buying").innerHTML = trees_buying.toString();
     }
 }
 function BuyTreesSet()
 {
-    treesbuying = parseInt(document.getElementById("buytreeschange").value);
-    if (isNaN(treesbuying))
+    trees_buying = parseInt(document.getElementById("buy_trees_change").value);
+    if (isNaN(trees_buying))
     {
-        treesbuying = 0;
+        trees_buying = 0;
     }
-    document.getElementById("treesbuying").innerHTML = treesbuying;
+    document.getElementById("trees_buying").innerHTML = trees_buying.toString();
 }
-
+function BuyMorePollution()
+{
+    pollution_buying ++;
+    document.getElementById("pollution_buying").innerHTML = pollution_buying.toString();
+}
+function BuyLessPollution()
+{
+    if (pollution_buying > 0)
+    {
+        pollution_buying --;
+        document.getElementById("pollution_buying").innerHTML = pollution_buying.toString();
+    }
+}
+function BuyPollutionSet()
+{
+    pollution_buying = parseInt(document.getElementById("buy_pollution_change").value);
+    if (isNaN(pollution_buying))
+    {
+        pollution_buying = 0;
+    }
+    document.getElementById("pollution_buying").innerHTML = pollution_buying.toString();
+}
