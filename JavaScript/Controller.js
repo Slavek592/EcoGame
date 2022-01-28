@@ -17,10 +17,23 @@ function Draw()
 }
 function NextTurn()
 {
-    
+    if (reset == false) Over = "";
     turn += 1;
-    money += people;
-    pollution += people / 10 /(pollution_cleaners+1);
+    money += (people - army);
+    if (army <= (people / 10)) {
+        Over = "war had begun and your Pollution rose by 10 and you lost" + " army: " + army + " People: " + Math.floor(people / 9) + " trees:" + trees[2] / 5;
+        people = people -= people / 9;
+        army -= army / 2;
+        pollution += 10;
+        trees[2] -= trees[2] / 5;
+        trees[2] = Math.floor(trees[2])
+        army = Math.floor(army);
+        
+    }
+    pollution_decrease = ((people - trees[0] - trees[1] * 1.3 - trees[2] * 1.5) / 10 / (pollution_cleaners + 1));
+    if (pollution_decrease <= 0) pollution_decrease = 0;
+    pollution += pollution_decrease;
+    
     pollution = Math.floor(pollution);
     people1 = people;
     people += people / 10;
@@ -28,7 +41,8 @@ function NextTurn()
     if (people1 == people) {
         people++;
     }
-    if (reset == false) Over = "";
+    
+    
     if (pollution >= 100) {
         reset = true;
         if (reset = true) Over = "Game Over";
@@ -56,7 +70,7 @@ function NextTurn()
     
     for (let i = 1; i > -1; i--)
     {
-        pollution -= trees[i];
+        
         trees[i+1] += trees[i];
         trees[i] = 0;
         if (pollution < 0)
