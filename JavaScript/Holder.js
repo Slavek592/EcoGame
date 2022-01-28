@@ -14,4 +14,8 @@ var pollution_cleaners = 0;
 var pollution_cost = 15;
 var tree_cost = 10;
 var best_score = 0;
-var pollution_decrease =0;
+var pollution_decrease = 0;
+var factory = 0;
+var factory_cost = 15;
+var factory_buying = 1;
+

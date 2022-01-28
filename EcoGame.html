@@ -27,7 +27,7 @@
         </a>
     </h1>
     <div>
-        <h2 id="best_score">The largest number of people: 0</h2>
+        <h2 id="best_score">Survived till turn : 0</h2>
                     
         <h2 id="turn_line">Turn 0</h2>     
                     
@@ -95,6 +95,25 @@
                     <button onclick="BuyPollutionSet()">Set</button>
                 </p>
                 <p><button onclick="BuyPollution()">Buy pollution cleners</button></p>
+            </td>
+            <td>
+                <h3>Factory</h3>
+                <p><a href="Data/Pedia/Factory.html" target="_blank">Info</a></p>
+                <h4>You have:</h4>
+                <p id="factory_line">Factory: 0</p>
+                
+                <p id="factory_cost">Buy factory: 15</p>
+                <h4>To buy:</h4>
+                <p id="factory_buying">1</p>
+                <p>
+                    <button onclick="BuyLessFactory()">-</button>
+                    <button onclick="BuyMoreFactory()">+</button>
+                </p>
+                <p>
+                    <input type="text" id="buy_factory_change">
+                    <button onclick="BuyFactorySet()">Set</button>
+                </p>
+                <p><button onclick="BuyFactory()">Buy factory</button></p>
             </td>
         </tr>
     </table>
