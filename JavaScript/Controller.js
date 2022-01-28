@@ -1,21 +1,26 @@
 function Draw()
 {
     document.getElementById("comment").innerHTML = "";
+    document.getElementById("game_over").innerHTML = Over;
     document.getElementById("turn_line").innerHTML = "Turn " + turn;
     document.getElementById("money_line").innerHTML = "Money: " + money;
     document.getElementById("people_line").innerHTML = "People: " + people;
     document.getElementById("pollution_line").innerHTML = "Pollution: " + pollution;
+    document.getElementById("pollution_cleaners_line").innerHTML = "Pollution cleaners: " + pollution_cleaners;
+    document.getElementById("pollution_cost").innerHTML = "Pollution cleaner cost: " + pollution_cost;
     document.getElementById("trees_line").innerHTML = "Adult trees: " + trees[2];
     document.getElementById("small_trees_line").innerHTML = "Small trees: " + trees[1];
     document.getElementById("seeds_line").innerHTML = "Seeds: " + trees[0];
+    document.getElementById("seeds_cost").innerHTML = "Buy seeds: " + tree_cost;
     document.getElementById("army_line").innerHTML = "Police: " + army;
+    document.getElementById("best_score").innerHTML = "The largest number of people: " + best_score;
 }
 function NextTurn()
 {
     
     turn += 1;
     money += people;
-    pollution += people / 10;
+    pollution += people / 10 /(pollution_cleaners+1);
     pollution = Math.floor(pollution);
     people1 = people;
     people += people / 10;
@@ -23,6 +28,30 @@ function NextTurn()
     if (people1 == people) {
         people++;
     }
+    if (reset == false) Over = "";
+    if (pollution >= 100) {
+        reset = true;
+        if (reset = true) Over = "Game Over";
+        if (reset) {
+            if (best_score <= people) best_score = people;
+            turn = 0;
+            money = 10
+            people = 10;
+            pollution = 0;
+            people1 = 0;
+            trees[0] = 0;
+            trees[1] = 0;
+            trees[2] = 0;
+            pollution_cleaners = 0;
+            pollution_cost = 15;
+            army = 0;
+            reset = false;
+            
+
+
+        }
+    }
+    
 
     
     for (let i = 1; i > -1; i--)
@@ -91,12 +120,13 @@ function BuyArmySet()
 }
 function BuyTrees()
 {
-    let tree_cost = 1;
+    
     if (money >= tree_cost * trees_buying)
     {
         money -= tree_cost * trees_buying;
         trees[0] += trees_buying;
         document.getElementById("seeds_line").innerHTML = "Seeds: " + trees[0];
+        Draw();
     }
 }
 function BuyMoreTrees()
@@ -120,6 +150,16 @@ function BuyTreesSet()
         trees_buying = 0;
     }
     document.getElementById("trees_buying").innerHTML = trees_buying.toString();
+}
+function BuyPollution() {
+    
+    if (money >= pollution_cost * pollution_buying) {
+        money -= pollution_cost * pollution_buying;
+        pollution_cost = pollution_cost* 1.5 * pollution_buying;
+        pollution_cleaners += pollution_buying;
+        document.getElementById("pollution_cleaners_line").innerHTML = "Pollution cleaners: " + pollution_cleaners;
+        Draw();
+    }
 }
 function BuyMorePollution()
 {
