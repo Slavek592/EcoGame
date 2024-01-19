@@ -23,7 +23,7 @@ function NextTurn()
     turn += 1;
     money += (people - army) + factory *2;
     if (army <= (people / 10)) {
-        Over = "war had begun and your Pollution rose by 10 and you lost" + " army: " + army + " People: " + Math.floor(people / 9) + " trees:" + trees[2] / 5;
+        Over = "war has begun and your Pollution rose by 10 and you lost" + " army: " + army + " People: " + Math.floor(people / 9) + " trees:" + trees[2] / 5;
         people = people -= people / 9;
         army -= army / 2;
         pollution += 10;
@@ -65,6 +65,7 @@ function NextTurn()
             factory = 0;
             factory_cost = 15;
             reset = false;
+
             
 
 
@@ -131,7 +132,7 @@ function BuyLessArmy()
 function BuyArmySet()
 {
     army_buying = parseInt(document.getElementById("buy_army_change").value);
-    if (isNaN(army_buying))
+    if (isNaN(army_buying)||army_buying<0)
     {
         army_buying = 0;
     }
@@ -167,7 +168,7 @@ function BuyLessTrees()
 function BuyTreesSet()
 {
     trees_buying = parseInt(document.getElementById("buy_trees_change").value);
-    if (isNaN(trees_buying))
+    if (isNaN(trees_buying) || trees_buying < 0)
     {
         trees_buying = 0;
     }
@@ -200,7 +201,7 @@ function BuyLessPollution()
 function BuyPollutionSet()
 {
     pollution_buying = parseInt(document.getElementById("buy_pollution_change").value);
-    if (isNaN(pollution_buying))
+    if (isNaN(pollution_buying) || pollution_buying < 0)
     {
         pollution_buying = 0;
     }
@@ -229,7 +230,7 @@ function BuyLessFactory() {
 }
 function BuyFactorySet() {
     factory_buying = parseInt(document.getElementById("buy_factory_change").value);
-    if (isNaN(factory_buying)) {
+    if (isNaN(factory_buying) || factory_buying < 0) {
         factory_buying = 0;
     }
     document.getElementById("factory_buying").innerHTML = factory_buying.toString();
