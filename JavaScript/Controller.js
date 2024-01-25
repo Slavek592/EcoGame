@@ -13,7 +13,7 @@ function Draw()
     document.getElementById("trees_line").innerHTML = "Adult trees: " + trees[2];
     document.getElementById("small_trees_line").innerHTML = "Small trees: " + trees[1];
     document.getElementById("seeds_line").innerHTML = "Seeds: " + trees[0];
-    document.getElementById("seeds_cost").innerHTML = "Buy seeds: " + tree_cost;
+    document.getElementById("seeds_cost").innerHTML = "Seed cost: " + tree_cost;
     document.getElementById("army_line").innerHTML = "Police: " + army;
     document.getElementById("best_score").innerHTML = "Survived till turn : " + best_score;
 }
